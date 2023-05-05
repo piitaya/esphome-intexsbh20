@@ -40,8 +40,7 @@ public:
 			return;
 		}
 
-		if (get_parent()->sbh()->isOnline())
-			publish_state(state);
+		publish_state(state);
 	}
 private:
 	const char* type_ = nullptr;

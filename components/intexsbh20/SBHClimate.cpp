@@ -35,8 +35,7 @@ void SBHClimate::update()
 		sbh->forceGetDesiredWaterTempCelsius(); // we'll learn the real target temp in near future...
 	}
 
-	if (get_parent()->sbh()->isOnline())
-		publish_state();
+	publish_state();
 }
 
 void SBHClimate::control(const esphome::climate::ClimateCall &call)
