@@ -362,7 +362,6 @@ void SBH20IO::setDesiredWaterTempCelsius(int temp)
       // DEBUG_MSG("\nBdelta %d", deltaTemp);
       while (deltaTemp)
       {
-        ESP.wdtFeed();
         if (deltaTemp > 0)
         {
           // DEBUG_MSG("\nBU");
