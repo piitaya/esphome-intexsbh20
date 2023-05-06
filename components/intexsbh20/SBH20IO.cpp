@@ -27,7 +27,6 @@
  */
 
 #include "SBH20IO.h"
-#include <Arduino.h>
 
 // bit mask for LEDs
 namespace FRAME_LED

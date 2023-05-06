@@ -30,6 +30,7 @@
 #define SBH20IO_H
 
 #include <WString.h>
+#include <Arduino.h>
 #include "common.h"
 
 /**
