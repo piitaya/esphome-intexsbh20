@@ -538,12 +538,12 @@ uint16_t SBH20IO::convertDisplayToCelsius(uint16_t value) const
   return (celsiusValue >= 0) && (celsiusValue <= 60) ? celsiusValue : UNDEF::USHORT;
 }
 
-IRAM_ATTR void SBH20IO::latchFallingISR(void *arg)
+void IRAM_ATTR SBH20IO::latchFallingISR(void *arg)
 {
   pinMode(PIN::DATA, INPUT);
 }
 
-IRAM_ATTR void SBH20IO::clockRisingISR(void *arg)
+void IRAM_ATTR SBH20IO::clockRisingISR(void *arg)
 {
   static uint16_t frame=0x0000;
   static uint16_t receivedBits=0x0000;
@@ -599,7 +599,7 @@ IRAM_ATTR void SBH20IO::clockRisingISR(void *arg)
   }
 }
 
-IRAM_ATTR inline uint8_t SBH20IO::BCD(uint16_t value)
+inline uint8_t IRAM_ATTR SBH20IO::BCD(uint16_t value)
 {
   uint8_t digit;
   switch (value & FRAME_DIGIT::SEGMENTS)
@@ -657,7 +657,7 @@ IRAM_ATTR inline uint8_t SBH20IO::BCD(uint16_t value)
   return digit;
 }
 
-IRAM_ATTR inline void SBH20IO::decodeDisplay(uint16_t frame)
+inline void IRAM_ATTR SBH20IO::decodeDisplay(uint16_t frame)
 {
   static uint16_t value = 0;  // current display
   static uint16_t pValue = 0; // previous display
@@ -731,7 +731,7 @@ IRAM_ATTR inline void SBH20IO::decodeDisplay(uint16_t frame)
   }
 }
 
-IRAM_ATTR inline void SBH20IO::decodeLED(uint16_t frame)
+inline void IRAM_ATTR SBH20IO::decodeLED(uint16_t frame)
 {
   static uint16_t pFrame=0x000;
   static int count=0;
@@ -769,7 +769,7 @@ IRAM_ATTR inline void SBH20IO::decodeLED(uint16_t frame)
   }
 }
 
-IRAM_ATTR inline void SBH20IO::decodeButton(uint16_t frame)
+inline void IRAM_ATTR SBH20IO::decodeButton(uint16_t frame)
 {
   bool reply =false;
   if (frame & FRAME_BUTTON::FILTER)

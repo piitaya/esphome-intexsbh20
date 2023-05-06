@@ -238,12 +238,12 @@ private:
 
 private:
   // ISR and ISR helper
-  static IRAM_ATTR void latchFallingISR(void *arg);
-  static IRAM_ATTR void clockRisingISR(void *arg);
-  static IRAM_ATTR inline uint8_t BCD(uint16_t value);
-  static IRAM_ATTR inline void decodeDisplay(uint16_t frame);
-  static IRAM_ATTR inline void decodeLED(uint16_t frame);
-  static IRAM_ATTR inline void decodeButton(uint16_t frame);
+  static void IRAM_ATTR latchFallingISR(void *arg);
+  static void IRAM_ATTR clockRisingISR(void *arg);
+  static inline uint8_t IRAM_ATTR BCD(uint16_t value);
+  static inline void IRAM_ATTR decodeDisplay(uint16_t frame);
+  static inline void IRAM_ATTR decodeLED(uint16_t frame);
+  static inline void IRAM_ATTR decodeButton(uint16_t frame);
 
 private:
   // ISR variables
