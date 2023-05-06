@@ -32,112 +32,112 @@
 // bit mask for LEDs
 namespace FRAME_LED
 {
-  const uint16 POWER = 0x0001;
-  const uint16 HEATER_ON = 0x0080; // max. 72 h, will start filter, will not stop filter
-  const uint16 NO_BEEP = 0x0100;
-  const uint16 HEATER_STANDBY = 0x0200;
-  const uint16 BUBBLE = 0x0400; // max. 30 min
-  const uint16 FILTER = 0x1000; // max. 24 h
+  const uint16_t POWER = 0x0001;
+  const uint16_t HEATER_ON = 0x0080; // max. 72 h, will start filter, will not stop filter
+  const uint16_t NO_BEEP = 0x0100;
+  const uint16_t HEATER_STANDBY = 0x0200;
+  const uint16_t BUBBLE = 0x0400; // max. 30 min
+  const uint16_t FILTER = 0x1000; // max. 24 h
 }
 
 namespace FRAME_DIGIT
 {
   // bit mask of 7-segment display selector
-  const uint16 POS_1 = 0x0040;
-  const uint16 POS_2 = 0x0020;
-  const uint16 POS_3 = 0x0800;
-  const uint16 POS_4 = 0x0004;
-  const uint16 POS_ALL = POS_1 | POS_2 | POS_3 | POS_4;
+  const uint16_t POS_1 = 0x0040;
+  const uint16_t POS_2 = 0x0020;
+  const uint16_t POS_3 = 0x0800;
+  const uint16_t POS_4 = 0x0004;
+  const uint16_t POS_ALL = POS_1 | POS_2 | POS_3 | POS_4;
 
   // bit mask of 7-segment display element
-  const uint16 SEGMENT_A = 0x2000;
-  const uint16 SEGMENT_B = 0x1000;
-  const uint16 SEGMENT_C = 0x0200;
-  const uint16 SEGMENT_D = 0x0400;
-  const uint16 SEGMENT_E = 0x0080;
-  const uint16 SEGMENT_F = 0x0008;
-  const uint16 SEGMENT_G = 0x0010;
-  const uint16 SEGMENT_DP = 0x8000;
-  const uint16 SEGMENTS = SEGMENT_A | SEGMENT_B | SEGMENT_C | SEGMENT_D | SEGMENT_E | SEGMENT_F | SEGMENT_G;
+  const uint16_t SEGMENT_A = 0x2000;
+  const uint16_t SEGMENT_B = 0x1000;
+  const uint16_t SEGMENT_C = 0x0200;
+  const uint16_t SEGMENT_D = 0x0400;
+  const uint16_t SEGMENT_E = 0x0080;
+  const uint16_t SEGMENT_F = 0x0008;
+  const uint16_t SEGMENT_G = 0x0010;
+  const uint16_t SEGMENT_DP = 0x8000;
+  const uint16_t SEGMENTS = SEGMENT_A | SEGMENT_B | SEGMENT_C | SEGMENT_D | SEGMENT_E | SEGMENT_F | SEGMENT_G;
 
   // bit mask of human readable value on 7-segment display
-  const uint16 OFF = 0x0000;
-  const uint16 NUM_0 = SEGMENT_A | SEGMENT_B | SEGMENT_C | SEGMENT_D | SEGMENT_E | SEGMENT_F;
-  const uint16 NUM_1 = SEGMENT_B | SEGMENT_C;
-  const uint16 NUM_2 = SEGMENT_A | SEGMENT_B | SEGMENT_G | SEGMENT_E | SEGMENT_D;
-  const uint16 NUM_3 = SEGMENT_A | SEGMENT_B | SEGMENT_C | SEGMENT_D | SEGMENT_G;
-  const uint16 NUM_4 = SEGMENT_F | SEGMENT_G | SEGMENT_B | SEGMENT_C;
-  const uint16 NUM_5 = SEGMENT_A | SEGMENT_F | SEGMENT_G | SEGMENT_C | SEGMENT_D;
-  const uint16 NUM_6 = SEGMENT_A | SEGMENT_F | SEGMENT_E | SEGMENT_D | SEGMENT_C | SEGMENT_G;
-  const uint16 NUM_7 = SEGMENT_A | SEGMENT_B | SEGMENT_C;
-  const uint16 NUM_8 = SEGMENT_A | SEGMENT_B | SEGMENT_C | SEGMENT_D | SEGMENT_E | SEGMENT_F | SEGMENT_G;
-  const uint16 NUM_9 = SEGMENT_A | SEGMENT_B | SEGMENT_C | SEGMENT_D | SEGMENT_F | SEGMENT_G;
-  const uint16 LET_A = SEGMENT_E | SEGMENT_F | SEGMENT_A | SEGMENT_B | SEGMENT_C | SEGMENT_G;
-  const uint16 LET_C = SEGMENT_A | SEGMENT_F | SEGMENT_E | SEGMENT_D;
-  const uint16 LET_D = SEGMENT_B | SEGMENT_C | SEGMENT_D | SEGMENT_E | SEGMENT_G;
-  const uint16 LET_E = SEGMENT_A | SEGMENT_F | SEGMENT_E | SEGMENT_D | SEGMENT_G;
-  const uint16 LET_F = SEGMENT_E | SEGMENT_F | SEGMENT_A | SEGMENT_G;
-  const uint16 LET_H = SEGMENT_B | SEGMENT_C | SEGMENT_E | SEGMENT_F | SEGMENT_G;
-  const uint16 LET_N = SEGMENT_A | SEGMENT_B | SEGMENT_C | SEGMENT_E | SEGMENT_F;
+  const uint16_t OFF = 0x0000;
+  const uint16_t NUM_0 = SEGMENT_A | SEGMENT_B | SEGMENT_C | SEGMENT_D | SEGMENT_E | SEGMENT_F;
+  const uint16_t NUM_1 = SEGMENT_B | SEGMENT_C;
+  const uint16_t NUM_2 = SEGMENT_A | SEGMENT_B | SEGMENT_G | SEGMENT_E | SEGMENT_D;
+  const uint16_t NUM_3 = SEGMENT_A | SEGMENT_B | SEGMENT_C | SEGMENT_D | SEGMENT_G;
+  const uint16_t NUM_4 = SEGMENT_F | SEGMENT_G | SEGMENT_B | SEGMENT_C;
+  const uint16_t NUM_5 = SEGMENT_A | SEGMENT_F | SEGMENT_G | SEGMENT_C | SEGMENT_D;
+  const uint16_t NUM_6 = SEGMENT_A | SEGMENT_F | SEGMENT_E | SEGMENT_D | SEGMENT_C | SEGMENT_G;
+  const uint16_t NUM_7 = SEGMENT_A | SEGMENT_B | SEGMENT_C;
+  const uint16_t NUM_8 = SEGMENT_A | SEGMENT_B | SEGMENT_C | SEGMENT_D | SEGMENT_E | SEGMENT_F | SEGMENT_G;
+  const uint16_t NUM_9 = SEGMENT_A | SEGMENT_B | SEGMENT_C | SEGMENT_D | SEGMENT_F | SEGMENT_G;
+  const uint16_t LET_A = SEGMENT_E | SEGMENT_F | SEGMENT_A | SEGMENT_B | SEGMENT_C | SEGMENT_G;
+  const uint16_t LET_C = SEGMENT_A | SEGMENT_F | SEGMENT_E | SEGMENT_D;
+  const uint16_t LET_D = SEGMENT_B | SEGMENT_C | SEGMENT_D | SEGMENT_E | SEGMENT_G;
+  const uint16_t LET_E = SEGMENT_A | SEGMENT_F | SEGMENT_E | SEGMENT_D | SEGMENT_G;
+  const uint16_t LET_F = SEGMENT_E | SEGMENT_F | SEGMENT_A | SEGMENT_G;
+  const uint16_t LET_H = SEGMENT_B | SEGMENT_C | SEGMENT_E | SEGMENT_F | SEGMENT_G;
+  const uint16_t LET_N = SEGMENT_A | SEGMENT_B | SEGMENT_C | SEGMENT_E | SEGMENT_F;
 }
 
 // bit mask of button
 namespace FRAME_BUTTON
 {
-  const uint16 POWER = 0x0400;
-  const uint16 FILTER = 0x0002;
-  const uint16 HEATER = 0x8000;
-  const uint16 BUBBLE = 0x0008;
-  const uint16 TEMP_UP = 0x1000;
-  const uint16 TEMP_DOWN = 0x0080;
-  const uint16 TEMP_UNIT = 0x2000;
-  const uint16 ALL = POWER | FILTER | HEATER | BUBBLE | TEMP_UP | TEMP_DOWN | TEMP_UNIT;
+  const uint16_t POWER = 0x0400;
+  const uint16_t FILTER = 0x0002;
+  const uint16_t HEATER = 0x8000;
+  const uint16_t BUBBLE = 0x0008;
+  const uint16_t TEMP_UP = 0x1000;
+  const uint16_t TEMP_DOWN = 0x0080;
+  const uint16_t TEMP_UNIT = 0x2000;
+  const uint16_t ALL = POWER | FILTER | HEATER | BUBBLE | TEMP_UP | TEMP_DOWN | TEMP_UNIT;
 }
 
 // frame type markers
 namespace FRAME_TYPE
 {
-  const uint16 CUE = 0x0100;
-  const uint16 LED = 0x4000;
-  const uint16 DIGIT = FRAME_DIGIT::POS_ALL;
-  const uint16 BUTTON = CUE | FRAME_BUTTON::ALL;
+  const uint16_t CUE = 0x0100;
+  const uint16_t LED = 0x4000;
+  const uint16_t DIGIT = FRAME_DIGIT::POS_ALL;
+  const uint16_t BUTTON = CUE | FRAME_BUTTON::ALL;
 }
 
 namespace DIGIT
 {
   // 7-segment display update control
-  const uint8 POS_1 = 0x8;
-  const uint8 POS_2 = 0x4;
-  const uint8 POS_3 = 0x2;
-  const uint8 POS_4 = 0x1;
-  const uint8 POS_1_2 = POS_1 | POS_2;
-  const uint8 POS_1_2_3 = POS_1 | POS_2 | POS_3;
-  const uint8 POS_ALL = POS_1 | POS_2 | POS_3 | POS_4;
+  const uint8_t POS_1 = 0x8;
+  const uint8_t POS_2 = 0x4;
+  const uint8_t POS_3 = 0x2;
+  const uint8_t POS_4 = 0x1;
+  const uint8_t POS_1_2 = POS_1 | POS_2;
+  const uint8_t POS_1_2_3 = POS_1 | POS_2 | POS_3;
+  const uint8_t POS_ALL = POS_1 | POS_2 | POS_3 | POS_4;
 
   // nibble value used to map a subset of non-numeric states of the 7-segment display
-  const uint8 LET_C = 0xC;
-  const uint8 LET_D = 0xD;
-  const uint8 LET_E = 0xE;
-  const uint8 LET_F = 0xF;
+  const uint8_t LET_C = 0xC;
+  const uint8_t LET_D = 0xD;
+  const uint8_t LET_E = 0xE;
+  const uint8_t LET_F = 0xF;
 
-  const uint8 LET_N = 0xA;
-  const uint8 OFF = 0xB;
+  const uint8_t LET_N = 0xA;
+  const uint8_t OFF = 0xB;
 };
 
 namespace ERROR
 {
   // internal binary value of error display (3 letters)
-  const uint16 NONE = 0;
-  const uint16 NO_WATER_FLOW = 0xE90;
-  const uint16 WATER_TEMP_LOW = 0xE94;
-  const uint16 WATER_TEMP_HIGH = 0xE95;
-  const uint16 SYSTEM = 0xE96;
-  const uint16 DRY_FIRE_PROTECT = 0xE97;
-  const uint16 TEMP_SENSOR = 0xE99;
-  const uint16 HEATING_ABORTED = 0xEAD; // A => DIGIT::LET_N ie: "END" => 0xEAD
+  const uint16_t NONE = 0;
+  const uint16_t NO_WATER_FLOW = 0xE90;
+  const uint16_t WATER_TEMP_LOW = 0xE94;
+  const uint16_t WATER_TEMP_HIGH = 0xE95;
+  const uint16_t SYSTEM = 0xE96;
+  const uint16_t DRY_FIRE_PROTECT = 0xE97;
+  const uint16_t TEMP_SENSOR = 0xE99;
+  const uint16_t HEATING_ABORTED = 0xEAD; // A => DIGIT::LET_N ie: "END" => 0xEAD
 
-  const uint16 VALUES[] = {NO_WATER_FLOW, WATER_TEMP_LOW, WATER_TEMP_HIGH, WATER_TEMP_HIGH, SYSTEM, DRY_FIRE_PROTECT, TEMP_SENSOR, HEATING_ABORTED};
-  const unsigned int COUNT = sizeof(VALUES) / sizeof(uint16);
+  const uint16_t VALUES[] = {NO_WATER_FLOW, WATER_TEMP_LOW, WATER_TEMP_HIGH, WATER_TEMP_HIGH, SYSTEM, DRY_FIRE_PROTECT, TEMP_SENSOR, HEATING_ABORTED};
+  const unsigned int COUNT = sizeof(VALUES) / sizeof(uint16_t);
 
   // human readable error on display
   const char CODE_90[] PROGMEM = "E90";
@@ -176,11 +176,11 @@ namespace ERROR
 }
 
 // special display values
-inline uint16 display2Num(uint16 v) { return (((v >> 12) & 0x000F) * 100) + (((v >> 8) & 0x000F) * 10) + ((v >> 4) & 0x000F); }
-inline uint16 display2Error(uint16 v) { return (v >> 4) & 0x0FFF; }
-inline bool displayIsTemp(uint16 v) { return (v & 0x000F) == DIGIT::LET_C || (v & 0x000F) == DIGIT::LET_F; }
-inline bool displayIsError(uint16 v) { return (v & 0xF000) == 0xE000; }
-inline bool displayIsBlank(uint16 v) { return (v & 0xFFF0) == ((DIGIT::OFF << 12) + (DIGIT::OFF << 8) + (DIGIT::OFF << 4)); }
+inline uint16_t display2Num(uint16_t v) { return (((v >> 12) & 0x000F) * 100) + (((v >> 8) & 0x000F) * 10) + ((v >> 4) & 0x000F); }
+inline uint16_t display2Error(uint16_t v) { return (v >> 4) & 0x0FFF; }
+inline bool displayIsTemp(uint16_t v) { return (v & 0x000F) == DIGIT::LET_C || (v & 0x000F) == DIGIT::LET_F; }
+inline bool displayIsError(uint16_t v) { return (v & 0xF000) == 0xE000; }
+inline bool displayIsBlank(uint16_t v) { return (v & 0xFFF0) == ((DIGIT::OFF << 12) + (DIGIT::OFF << 8) + (DIGIT::OFF << 4)); }
 
 volatile SBH20IO::State SBH20IO::state;
 volatile SBH20IO::Buttons SBH20IO::buttons;
@@ -280,32 +280,32 @@ unsigned int SBH20IO::getRawLedValue() const
   return (state.ledStatus != UNDEF::USHORT) ? state.ledStatus : UNDEF::USHORT;
 }
 
-uint8 SBH20IO::isPowerOn() const
+uint8_t SBH20IO::isPowerOn() const
 {
   return (state.ledStatus != UNDEF::USHORT) ? ((state.ledStatus & FRAME_LED::POWER) != 0) : UNDEF::BOOL;
 }
 
-uint8 SBH20IO::isFilterOn() const
+uint8_t SBH20IO::isFilterOn() const
 {
   return (state.ledStatus != UNDEF::USHORT) ? ((state.ledStatus & FRAME_LED::FILTER) != 0) : UNDEF::BOOL;
 }
 
-uint8 SBH20IO::isBubbleOn() const
+uint8_t SBH20IO::isBubbleOn() const
 {
   return (state.ledStatus != UNDEF::USHORT) ? ((state.ledStatus & FRAME_LED::BUBBLE) != 0) : UNDEF::BOOL;
 }
 
-uint8 SBH20IO::isHeaterOn() const
+uint8_t SBH20IO::isHeaterOn() const
 {
   return (state.ledStatus != UNDEF::USHORT) ? ((state.ledStatus & (FRAME_LED::HEATER_ON | FRAME_LED::HEATER_STANDBY)) != 0) : UNDEF::BOOL;
 }
 
-uint8 SBH20IO::isHeaterStandby() const
+uint8_t SBH20IO::isHeaterStandby() const
 {
   return (state.ledStatus != UNDEF::USHORT) ? ((state.ledStatus & FRAME_LED::HEATER_STANDBY) != 0) : UNDEF::BOOL;
 }
 
-uint8 SBH20IO::isBuzzerOn() const
+uint8_t SBH20IO::isBuzzerOn() const
 {
   return (state.ledStatus != UNDEF::USHORT) ? ((state.ledStatus & FRAME_LED::NO_BEEP) == 0) : UNDEF::BOOL;
 }
@@ -521,15 +521,15 @@ bool SBH20IO::changeWaterTemp(int up)
   return false;
 }
 
-uint16 SBH20IO::convertDisplayToCelsius(uint16 value) const
+uint16_t SBH20IO::convertDisplayToCelsius(uint16_t value) const
 {
-  uint16 celsiusValue = display2Num(value);
-  uint16 tempUint = value & 0x000F;
+  uint16_t celsiusValue = display2Num(value);
+  uint16_t tempUint = value & 0x000F;
   if (tempUint == DIGIT::LET_F)
   {
     // convert °F to °C
     float fValue = (float)celsiusValue;
-    celsiusValue = (uint16)round(((fValue - 32) * 5) / 9);
+    celsiusValue = (uint16_t)round(((fValue - 32) * 5) / 9);
   }
   else if (tempUint != DIGIT::LET_C)
   {
@@ -539,15 +539,15 @@ uint16 SBH20IO::convertDisplayToCelsius(uint16 value) const
   return (celsiusValue >= 0) && (celsiusValue <= 60) ? celsiusValue : UNDEF::USHORT;
 }
 
-ICACHE_RAM_ATTR void SBH20IO::latchFallingISR(void *arg)
+IRAM_ATTR void SBH20IO::latchFallingISR(void *arg)
 {
   pinMode(PIN::DATA, INPUT);
 }
 
-ICACHE_RAM_ATTR void SBH20IO::clockRisingISR(void *arg)
+IRAM_ATTR void SBH20IO::clockRisingISR(void *arg)
 {
-  static uint16 frame=0x0000;
-  static uint16 receivedBits=0x0000;
+  static uint16_t frame=0x0000;
+  static uint16_t receivedBits=0x0000;
   bool data = !digitalRead(PIN::DATA);
   bool enable = digitalRead(PIN::LATCH) == LOW;
 
@@ -600,9 +600,9 @@ ICACHE_RAM_ATTR void SBH20IO::clockRisingISR(void *arg)
   }
 }
 
-ICACHE_RAM_ATTR inline uint8 SBH20IO::BCD(uint16 value)
+IRAM_ATTR inline uint8_t SBH20IO::BCD(uint16_t value)
 {
-  uint8 digit;
+  uint8_t digit;
   switch (value & FRAME_DIGIT::SEGMENTS)
   {
   case FRAME_DIGIT::OFF:
@@ -658,17 +658,17 @@ ICACHE_RAM_ATTR inline uint8 SBH20IO::BCD(uint16 value)
   return digit;
 }
 
-ICACHE_RAM_ATTR inline void SBH20IO::decodeDisplay(uint16 frame)
+IRAM_ATTR inline void SBH20IO::decodeDisplay(uint16_t frame)
 {
-  static uint16 value = 0;  // current display
-  static uint16 pValue = 0; // previous display
-  static uint16 stableValue = 0;  
+  static uint16_t value = 0;  // current display
+  static uint16_t pValue = 0; // previous display
+  static uint16_t stableValue = 0;  
   static uint debounce = 0;   // quick debounce
 
-  static uint8 largeDebounce =0; // larger than blank frames count
-  static uint16 stableTemp=0x0000; // stable temperature
+  static uint8_t largeDebounce =0; // larger than blank frames count
+  static uint16_t stableTemp=0x0000; // stable temperature
 
-  uint8 digit = BCD(frame);
+  uint8_t digit = BCD(frame);
 
   if (frame & FRAME_DIGIT::POS_1)
   {
@@ -732,9 +732,9 @@ ICACHE_RAM_ATTR inline void SBH20IO::decodeDisplay(uint16 frame)
   }
 }
 
-ICACHE_RAM_ATTR inline void SBH20IO::decodeLED(uint16 frame)
+IRAM_ATTR inline void SBH20IO::decodeLED(uint16_t frame)
 {
-  static uint16 pFrame=0x000;
+  static uint16_t pFrame=0x000;
   static int count=0;
 
   if (frame == pFrame)
@@ -770,7 +770,7 @@ ICACHE_RAM_ATTR inline void SBH20IO::decodeLED(uint16 frame)
   }
 }
 
-ICACHE_RAM_ATTR inline void SBH20IO::decodeButton(uint16 frame)
+IRAM_ATTR inline void SBH20IO::decodeButton(uint16_t frame)
 {
   bool reply =false;
   if (frame & FRAME_BUTTON::FILTER)

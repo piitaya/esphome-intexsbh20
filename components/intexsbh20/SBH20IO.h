@@ -29,7 +29,6 @@
 #ifndef SBH20IO_H
 #define SBH20IO_H
 
-#include <c_types.h>
 #include <WString.h>
 #include "common.h"
 
@@ -132,8 +131,8 @@ public:
   class UNDEF
   {
   public:
-    static const uint8 BOOL = 0xFF;
-    static const uint16 USHORT = 0xFFFF;
+    static const uint8_t BOOL = 0xFF;
+    static const uint16_t USHORT = 0xFFFF;
   };
 
   class WATER_TEMP
@@ -154,12 +153,12 @@ public:
   int getDesiredWaterTempCelsius() const;
   void forceGetDesiredWaterTempCelsius();
 
-  uint8 isBubbleOn() const;
-  uint8 isFilterOn() const;
-  uint8 isHeaterOn() const;
-  uint8 isHeaterStandby() const;
-  uint8 isPowerOn() const;
-  uint8 isBuzzerOn() const;
+  uint8_t isBubbleOn() const;
+  uint8_t isFilterOn() const;
+  uint8_t isHeaterOn() const;
+  uint8_t isHeaterStandby() const;
+  uint8_t isPowerOn() const;
+  uint8_t isBuzzerOn() const;
 
   void setDesiredWaterTempCelsius(int temp);
 
@@ -212,12 +211,12 @@ private:
 private:
   struct State
   {
-    uint16 waterTemp = UNDEF::USHORT;
-    uint16 desiredTemp = UNDEF::USHORT;
-    uint16 ledStatus = UNDEF::USHORT;
+    uint16_t waterTemp = UNDEF::USHORT;
+    uint16_t desiredTemp = UNDEF::USHORT;
+    uint16_t ledStatus = UNDEF::USHORT;
 
     bool buzzer = false;
-    uint16 error = 0;
+    uint16_t error = 0;
     unsigned int lastErrorChangeFrameCounter = 0;
 
     bool online = true;
@@ -239,12 +238,12 @@ private:
 
 private:
   // ISR and ISR helper
-  static ICACHE_RAM_ATTR void latchFallingISR(void *arg);
-  static ICACHE_RAM_ATTR void clockRisingISR(void *arg);
-  static ICACHE_RAM_ATTR inline uint8 BCD(uint16 value);
-  static ICACHE_RAM_ATTR inline void decodeDisplay(uint16 frame);
-  static ICACHE_RAM_ATTR inline void decodeLED(uint16 frame);
-  static ICACHE_RAM_ATTR inline void decodeButton(uint16 frame);
+  static IRAM_ATTR void latchFallingISR(void *arg);
+  static IRAM_ATTR void clockRisingISR(void *arg);
+  static IRAM_ATTR inline uint8_t BCD(uint16_t value);
+  static IRAM_ATTR inline void decodeDisplay(uint16_t frame);
+  static IRAM_ATTR inline void decodeLED(uint16_t frame);
+  static IRAM_ATTR inline void decodeButton(uint16_t frame);
 
 private:
   // ISR variables
@@ -252,7 +251,7 @@ private:
   static volatile Buttons buttons;
 
 private:
-  uint16 convertDisplayToCelsius(uint16 value) const;
+  uint16_t convertDisplayToCelsius(uint16_t value) const;
   bool waitBuzzerOff() const;
   bool pressButton(volatile unsigned int &buttonPressCount);
   bool changeWaterTemp(int up);
