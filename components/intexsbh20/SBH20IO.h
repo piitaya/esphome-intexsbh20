@@ -150,9 +150,9 @@ public:
 public:
   bool isOnline() const;
 
-  int getActWaterTempCelsius() const;
-  int getDesiredWaterTempCelsius() const;
-  void forceGetDesiredWaterTempCelsius();
+  int getCurrentTemperature() const;
+  int getTargetTemperature() const;
+  void forceReadTargetTemperature();
 
   uint8_t isBubbleOn() const;
   uint8_t isFilterOn() const;
@@ -161,7 +161,7 @@ public:
   uint8_t isPowerOn() const;
   uint8_t isBuzzerOn() const;
 
-  void setDesiredWaterTempCelsius(int temp);
+  void setTargetTemperature(int temp);
 
   void setBubbleOn(bool on);
   void setFilterOn(bool on);
@@ -212,8 +212,8 @@ private:
 private:
   struct State
   {
-    uint16_t waterTemp = UNDEF::USHORT;
-    uint16_t desiredTemp = UNDEF::USHORT;
+    uint16_t currentTemperature = UNDEF::USHORT;
+    uint16_t targetTemperature = UNDEF::USHORT;
     uint16_t ledStatus = UNDEF::USHORT;
 
     bool buzzer = false;
@@ -255,7 +255,7 @@ private:
   uint16_t convertDisplayToCelsius(uint16_t value) const;
   bool waitBuzzerOff() const;
   bool pressButton(volatile unsigned int &buttonPressCount);
-  bool changeWaterTemp(int up);
+  bool changeTargetTemperature(int up);
 
 private:
   LANG language;

@@ -230,19 +230,19 @@ unsigned int SBH20IO::getDroppedFrames() const
   return state.frameDropped;
 }
 
-int SBH20IO::getActWaterTempCelsius() const
+int SBH20IO::getCurrentTemperature() const
 {
-  return (state.waterTemp != UNDEF::USHORT) ? convertDisplayToCelsius(state.waterTemp) : UNDEF::USHORT;
+  return (state.currentTemperature != UNDEF::USHORT) ? convertDisplayToCelsius(state.currentTemperature) : UNDEF::USHORT;
 }
 
-int SBH20IO::getDesiredWaterTempCelsius() const
+int SBH20IO::getTargetTemperature() const
 {
-  return (state.desiredTemp != UNDEF::USHORT) ? convertDisplayToCelsius(state.desiredTemp) : UNDEF::USHORT;
+  return (state.targetTemperature != UNDEF::USHORT) ? convertDisplayToCelsius(state.targetTemperature) : UNDEF::USHORT;
 }
 
-void SBH20IO::forceGetDesiredWaterTempCelsius()
+void SBH20IO::forceReadTargetTemperature()
 {
-  changeWaterTemp(-1);
+  changeTargetTemperature(-1);
 }
 
 unsigned int SBH20IO::getErrorValue() const
@@ -321,19 +321,19 @@ uint8_t SBH20IO::isBuzzerOn() const
  *
  * @param temp water temperature setpoint [°C]
  */
-void SBH20IO::setDesiredWaterTempCelsius(int temp)
+void SBH20IO::setTargetTemperature(int temp)
 {
   if (temp >= WATER_TEMP::SET_MIN && temp <= WATER_TEMP::SET_MAX)
   {
     if (isPowerOn() == true && state.error == ERROR::NONE)
     {
       // try to get initial temp
-      int setTemp = getDesiredWaterTempCelsius();
+      int setTemp = getTargetTemperature();
       bool modifying = false;
       if (setTemp == UNDEF::USHORT)
       {
         // trigger temp modification
-        changeWaterTemp(-1);
+        changeTargetTemperature(-1);
         modifying = true;
 
         // wait for temp readback (will take 2-3 blink durations)
@@ -342,7 +342,7 @@ void SBH20IO::setDesiredWaterTempCelsius(int temp)
         do
         {
           delay(sleep);
-          setTemp = getDesiredWaterTempCelsius();
+          setTemp = getTargetTemperature();
           tries--;
         } while (setTemp == UNDEF::USHORT && tries);
 
@@ -364,7 +364,7 @@ void SBH20IO::setDesiredWaterTempCelsius(int temp)
         if (deltaTemp > 0)
         {
           // DEBUG_MSG("\nBU");
-          changeWaterTemp(1);
+          changeTargetTemperature(1);
           if (modifying)
           {
             deltaTemp--;
@@ -374,7 +374,7 @@ void SBH20IO::setDesiredWaterTempCelsius(int temp)
         else
         {
           // DEBUG_MSG("\nBD");
-          changeWaterTemp(-1);
+          changeTargetTemperature(-1);
           if (modifying)
           {
             deltaTemp++;
@@ -479,7 +479,7 @@ bool SBH20IO::waitBuzzerOff() const
  * @param up press up (> 0) or down (< 0) button
  * @return true if beep was received, false if no beep was received until timeout
  */
-bool SBH20IO::changeWaterTemp(int up)
+bool SBH20IO::changeTargetTemperature(int up)
 {
   if (isPowerOn() == true && state.error == ERROR::NONE)
   {
@@ -544,8 +544,8 @@ void IRAM_ATTR SBH20IO::latchFallingISR(void *arg)
 
 void IRAM_ATTR SBH20IO::clockRisingISR(void *arg)
 {
-  static uint16_t frame=0x0000;
-  static uint16_t receivedBits=0x0000;
+  static uint16_t frame = 0x0000;
+  static uint16_t receivedBits = 0x0000;
   bool data = !digitalRead(PIN::DATA);
   bool enable = digitalRead(PIN::LATCH) == LOW;
 
@@ -660,11 +660,11 @@ inline void IRAM_ATTR SBH20IO::decodeDisplay(uint16_t frame)
 {
   static uint16_t value = 0;  // current display
   static uint16_t pValue = 0; // previous display
-  static uint16_t stableValue = 0;  
-  static uint debounce = 0;   // quick debounce
+  static uint16_t stableValue = 0;
+  static uint debounce = 0; // quick debounce
 
-  static uint8_t largeDebounce =0; // larger than blank frames count
-  static uint16_t stableTemp=0x0000; // stable temperature
+  static uint8_t largeDebounce = 0;    // larger than blank frames count
+  static uint16_t stableTemp = 0x0000; // stable temperature
 
   uint8_t digit = BCD(frame);
 
@@ -699,9 +699,9 @@ inline void IRAM_ATTR SBH20IO::decodeDisplay(uint16_t frame)
         stableValue = value;
         if (displayIsBlank(value))
         {
-          if (state.desiredTemp != stableTemp)
+          if (state.targetTemperature != stableTemp)
           {
-            state.desiredTemp = stableTemp;
+            state.targetTemperature = stableTemp;
             state.stateUpdated = true;
           }
         }
@@ -720,9 +720,9 @@ inline void IRAM_ATTR SBH20IO::decodeDisplay(uint16_t frame)
       }
       else
       {
-        if (state.waterTemp != stableTemp)
+        if (state.currentTemperature != stableTemp)
         {
-          state.waterTemp = stableTemp;
+          state.currentTemperature = stableTemp;
           state.stateUpdated = true;
         }
       }
@@ -732,8 +732,8 @@ inline void IRAM_ATTR SBH20IO::decodeDisplay(uint16_t frame)
 
 inline void IRAM_ATTR SBH20IO::decodeLED(uint16_t frame)
 {
-  static uint16_t pFrame=0x000;
-  static int count=0;
+  static uint16_t pFrame = 0x000;
+  static int count = 0;
 
   if (frame == pFrame)
   {
@@ -770,7 +770,7 @@ inline void IRAM_ATTR SBH20IO::decodeLED(uint16_t frame)
 
 inline void IRAM_ATTR SBH20IO::decodeButton(uint16_t frame)
 {
-  bool reply =false;
+  bool reply = false;
   if (frame & FRAME_BUTTON::FILTER)
   {
     // DEBUG_MSG("F");
