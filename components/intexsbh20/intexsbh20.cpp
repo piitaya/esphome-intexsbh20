@@ -53,6 +53,9 @@ void IntexSBH20::update()
 	
 	if (climate_)
 		climate_->update();
+
+	if (water_temperature_)
+		water_temperature_->publish_state(sbh_.getCurrentTemperature());
 }
 
 }}

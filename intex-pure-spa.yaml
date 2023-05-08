@@ -27,6 +27,8 @@ wifi:
 
 climate:
 
+sensor:
+
 switch:
 
 text_sensor:
@@ -44,6 +46,14 @@ intexsbh20:
   bubble:
     name: Bubble
     icon: mdi:chart-bubble
+  water_temperature:
+    name: Water temperature
+    icon: mdi:water-thermometer
+    device_class: temperature
+    state_class: measurement
+    accuracy_decimals: 0
+    unit_of_measurement: °C
   error_text:
     name: Error
     icon: mdi:alert-circle
+    entity_category: diagnostic

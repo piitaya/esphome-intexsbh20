@@ -1,9 +1,9 @@
 import esphome.codegen as cg
 import esphome.config_validation as cv
-from esphome.components import switch, text_sensor, climate
+from esphome.components import climate, sensor, switch, text_sensor
 from esphome.const import CONF_ID
 
-DEPENDENCIES = ['text_sensor', 'switch', 'climate']
+DEPENDENCIES = ['climate', 'sensor', 'switch', 'text_sensor']
 
 AUTO_LOAD = []
 
@@ -11,6 +11,7 @@ CONF_CLIMATE = 'climate'
 CONF_POWER = 'power'
 CONF_FILTER = 'filter'
 CONF_BUBBLE = 'bubble'
+CONF_WATER_TEMPERATURE = 'water_temperature'
 CONF_ERROR_TEXT = 'error_text'
 
 sbh_ns = cg.esphome_ns.namespace('sbh20')
@@ -33,6 +34,7 @@ CONFIG_SCHEMA = cv.polling_component_schema('5s').extend({
 	cv.Optional(CONF_BUBBLE): switch.SWITCH_SCHEMA.extend({
 		cv.GenerateID(): cv.declare_id(SBHSwitch),
 	}),
+	cv.Optional(CONF_WATER_TEMPERATURE): sensor.sensor_schema().extend(),
 	cv.Optional(CONF_ERROR_TEXT): text_sensor.text_sensor_schema().extend(),
 })
 
@@ -66,3 +68,7 @@ async def to_code(config):
 	if CONF_ERROR_TEXT in config:
 		tx = await text_sensor.new_text_sensor(config[CONF_ERROR_TEXT])
 		cg.add(var.set_error_text_sensor(tx))
+
+	if CONF_WATER_TEMPERATURE in config:
+		tx = await sensor.new_sensor(config[CONF_WATER_TEMPERATURE])
+		cg.add(var.set_water_temperature_sensor(tx))

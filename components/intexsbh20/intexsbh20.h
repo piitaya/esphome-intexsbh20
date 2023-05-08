@@ -3,6 +3,7 @@
 
 #include "esphome/core/component.h"
 #include "esphome/components/text_sensor/text_sensor.h"
+#include "esphome/components/sensor/sensor.h"
 #include "SBH20IO.h"
 
 namespace esphome {
@@ -25,6 +26,7 @@ public:
 	void set_switch_filter(SBHSwitch* switch_filter) { switch_filter_ = switch_filter; }
 	void set_switch_bubble(SBHSwitch* switch_bubble) { switch_bubble_ = switch_bubble; }
 	void set_error_text_sensor(esphome::text_sensor::TextSensor* error) { error_text_ = error; };
+	void set_water_temperature_sensor(esphome::sensor::Sensor* temperature) { water_temperature_ = temperature; };
 private:
 	SBH20IO sbh_;
 	SBHClimate* climate_ = nullptr;
@@ -32,6 +34,7 @@ private:
 	SBHSwitch* switch_filter_ = nullptr;
 	SBHSwitch* switch_bubble_ = nullptr;
 	esphome::text_sensor::TextSensor* error_text_ = nullptr;
+	esphome::sensor::Sensor* water_temperature_ = nullptr;
 };
 
 }}
