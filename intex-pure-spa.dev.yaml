@@ -8,8 +8,9 @@ esp8266:
   board: d1_mini
 
 external_components:
-  - source: github://piitaya/esphome-intexsbh20
-    components: [intexsbh20]
+  - source:
+      type: local
+      path: components
 
 logger:
 
