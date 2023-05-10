@@ -1,0 +1,15 @@
+{
+  "name": "documentation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "style:dev": "tailwindcss -i ./src/style.css -o ./public/style.css --watch",
+    "style:build": "tailwindcss -i ./src/style.css -o ./public/style.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.3.2"
+  }
+}
