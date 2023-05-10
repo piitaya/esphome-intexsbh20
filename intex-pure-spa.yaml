@@ -1,9 +1,13 @@
+substitutions:
+  name: "intex-pure-spa"
+  friendly_name: "Intex Pure Spa"
+
 esphome:
-  name: intex-pure-spa
-  friendly_name: Intex Pure Spa
+  name: "${name}"
+  friendly_name: "${friendly_name}"
+  name_add_mac_suffix: true
   platformio_options:
     board_build.f_cpu: 160000000L
-  name_add_mac_suffix: true
 
 esp8266:
   board: d1_mini
@@ -19,12 +23,13 @@ api:
 ota:
 
 dashboard_import:
-  package_import_url: github://piitaya/esphome-intexsbh20/intex-pure-spa.yaml
-  import_full_config: false
+  package_import_url: github://piitaya/esphome-intexsbh20/intex-pure-spa.yaml@main
 
 wifi:
   ap:
     password: "12345678"
+
+captive_portal:
 
 improv_serial:
 
