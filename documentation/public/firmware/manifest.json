@@ -8,7 +8,7 @@
         "chipFamily": "ESP8266",
         "parts": [
           {
-            "path": "/firmware/intex-pure-spa.bin",
+            "path": "/esphome-intexsbh20/firmware/intex-pure-spa.bin",
             "offset": 0
           }
         ]
