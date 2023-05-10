@@ -19,7 +19,8 @@ api:
 ota:
 
 dashboard_import:
-  package_import_url: github://piitaya/esphome-intexsbh20/intex-pure-spa.template.yaml@main
+  package_import_url: github://piitaya/esphome-intexsbh20/intex-pure-spa.yaml
+  import_full_config: false
 
 wifi:
   ap:
