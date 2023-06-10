@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/style.css" rel="stylesheet" />
+    <title>ESPHome Intex Pure Spa</title>
+    <script
+      type="module"
+      src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"
+    ></script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto py-8 px-4">
+      <h1 class="text-2xl font-bold mb-6 text-center">
+        ESPHome Intex Pure Spa
+      </h1>
+      <div class="w-full max-w-2xl mx-auto bg-white p-8 rounded-md shadow-md">
+        <h2 class="text-xl font-bold mb-6">Introduction</h2>
+        <p class="text-m mb-6">
+          This project is a conversion of the excellent
+          <a
+            class="text-blue-500 hover:underline"
+            href="https://github.com/jnsbyr/esp8266-intexsbh20"
+            target="_blank"
+            rel="noopener"
+            >esp8266-intexsbh20</a
+          >
+          project to ESPHome for easier installation with Home Assistant. This
+          firmware is only compatible with Intex SB-H20 Spa. If you wish to use
+          your spa with another home automation system, refer to the initial
+          project.
+        </p>
+        <img src="/img/intro.png" class="mb-6" />
+        <h2 class="text-xl font-bold mb-6">Requirements</h2>
+        <ul class="text-m mb-6 list-disc pl-6">
+          <li>Home Assistant</li>
+          <li>
+            An ESP8266, the electronic board and connectors (<a
+              class="text-blue-500 hover:underline"
+              href="https://github.com/jnsbyr/esp8266-intexsbh20#building-your-own-wifi-remote-control"
+              target="_blank"
+              rel="noopener"
+              >more info here</a
+            >)
+          </li>
+          <li>A micro USB cable</li>
+          <li>The password for your 2.4 Ghz Wi-Fi network</li>
+          <li>
+            Google Chrome (or a Chromium-based browser like Microsoft Edge) on a
+            computer (not Android/iOS)
+          </li>
+        </ul>
+        <h2 class="text-xl font-bold mb-6">Installation</h2>
+        <p class="text-m mb-6">
+          Installation is done directly through the browser. Simply connect the
+          ESP8266 to your computer using the micro USB cable and click the
+          install button. Follow the instructions. You will need to enter your
+          Wi-Fi password to connect the ESP8266 to your Wi-Fi. The spa will then
+          be automatically discovered by Home Assistant as an ESPHome device.
+        </p>
+        <esp-web-install-button manifest="/firmware/manifest.json">
+          <button
+            slot="activate"
+            class="bg-blue-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 mb-6"
+          >
+            Install
+          </button>
+          <div slot="unsupported" class="p-4 bg-yellow-100 rounded-md mb-6">
+            <p class="text-yellow-700">Your browser is not compatible.</p>
+          </div>
+          <div slot="not-allowed" class="p-4 bg-yellow-100 rounded-md mb-6">
+            <p class="text-yellow-700">
+              You can only launch the installation from a secure page (HTTPS).
+            </p>
+          </div>
+        </esp-web-install-button>
+
+        <h2 class="text-xl font-bold mb-6">Problèmes connus</h2>
+        <ul class="text-m mb-6 list-disc pl-6">
+          <li>The "Power" switch may not work at times.</li>
+          <li>
+            The temperatures are equal to 65.535°C if the card is not connected
+            to the spa.
+          </li>
+        </ul>
+
+        <p class="text-m">
+          Sources are available at
+          <a
+            class="text-blue-500 hover:underline"
+            href="https://github.com/piitaya/esphome-intexsbh20"
+            target="_blank"
+            rel="noopener"
+            >Github</a
+          >.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

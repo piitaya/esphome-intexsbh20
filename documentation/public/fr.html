@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/style.css" rel="stylesheet" />
+    <title>ESPHome Intex Pure Spa</title>
+    <script
+      type="module"
+      src="https://unpkg.com/esp-web-tools@9/dist/web/install-button.js?module"
+    ></script>
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto py-8 px-4">
+      <h1 class="text-2xl font-bold mb-6 text-center">
+        ESPHome Intex Pure Spa
+      </h1>
+      <div class="w-full max-w-2xl mx-auto bg-white p-8 rounded-md shadow-md">
+        <h2 class="text-xl font-bold mb-6">Introduction</h2>
+        <p class="text-m mb-6">
+          Cet projet est une conversion de l'excellent projet
+          <a
+            class="text-blue-500 hover:underline"
+            href="https://github.com/jnsbyr/esp8266-intexsbh20"
+            target="_blank"
+            rel="noopener"
+            >esp8266-intexsbh20</a
+          >
+          vers ESPHome pour une installation plus simple avec Home Assistant. Ce
+          firmware n'est compatible qu'avec le spa Intex SB-H20. Si vous
+          souhaitez utiliser votre spa avec un autre système domotique que Home
+          Assistant, reportez-vous au projet unitial.
+        </p>
+        <img src="/img/intro.png" class="mb-6" />
+        <h2 class="text-xl font-bold mb-6">Prérequis</h2>
+        <ul class="text-m mb-6 list-disc pl-6">
+          <li>Home Assistant</li>
+          <li>
+            Un ESP8266 ainsi que la carte électronique et les connecteurs (<a
+              class="text-blue-500 hover:underline"
+              href="https://github.com/jnsbyr/esp8266-intexsbh20#building-your-own-wifi-remote-control"
+              target="_blank"
+              rel="noopener"
+              >plus d'info ici</a
+            >)
+          </li>
+          <li>Un câble micro USB</li>
+          <li>Le mot de passe de votre réseau Wi-Fi 2.4 Ghz</li>
+          <li>
+            Google Chrome (ou un navigateur basé sur Chromium comme Microsoft
+            Edge) sur un ordinateur (pas Android/iOS)
+          </li>
+        </ul>
+        <h2 class="text-xl font-bold mb-6">Installation</h2>
+        <p class="text-m mb-6">
+          L'installation se fait directement via le navigateur. Il suffit de
+          brancher l'ESP8266 à votre ordinateur à l'aide du câble micro USB et de
+          cliquer sur installer. Suivez les instructions. Vous serez invitez à
+          renseigner votre mot de passe Wi-Fi pour connecter l'ESP8266 à votre
+          Wi-Fi. Le spa sera alors automatiquement découvert par Home Assistant
+          en tant qu'appareil ESPHome.
+        </p>
+        <esp-web-install-button manifest="/firmware/manifest.json">
+          <button
+            slot="activate"
+            class="bg-blue-500 text-white text-sm font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition duration-300 mb-6"
+          >
+            Installer
+          </button>
+          <div slot="unsupported" class="p-4 bg-yellow-100 rounded-md mb-6">
+            <p class="text-yellow-700">Votre navigateur n'est pas compatible.</p>
+          </div>
+          <div slot="not-allowed" class="p-4 bg-yellow-100 rounded-md mb-6">
+            <p class="text-yellow-700">
+              Vous ne pouvez lancer l'installation que depuis une page sécurisée
+              (HTTPS).
+            </p>
+          </div>
+        </esp-web-install-button>
+        
+        <h2 class="text-xl font-bold mb-6">Problèmes connus</h2>
+        <ul class="text-m mb-6 list-disc pl-6">
+          <li>L'interrupteur "Power" peut ne pas fonctionner par moment.</li>
+          <li>Les températures sont égales à 65,535 °C si la carte n'est pas reliée au spa.</li>
+        </ul>
+        
+        <p class="text-m">
+          Les sources sont disponibles sur
+          <a
+            class="text-blue-500 hover:underline"
+            href="https://github.com/piitaya/esphome-intexsbh20"
+            target="_blank"
+            rel="noopener"
+            >Github</a
+          >.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
