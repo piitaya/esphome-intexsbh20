@@ -24,6 +24,7 @@ logger:
 api:
 
 ota:
+  - platform: esphome
 
 dashboard_import:
   package_import_url: github://piitaya/esphome-intexsbh20/intex-pure-spa.yaml@main
