@@ -23,7 +23,9 @@ void SBHClimate::update()
 		this->mode = esphome::climate::CLIMATE_MODE_HEAT;
 	}
 
-	this->current_temperature = sbh->getCurrentTemperature();
+	int currentTemp = sbh->getCurrentTemperature();
+
+	this->current_temperature = (currentTemp != SBH20IO::UNDEF::USHORT) ? currentTemp : NAN;
 
 	int targetTemp = sbh->getTargetTemperature();
 
